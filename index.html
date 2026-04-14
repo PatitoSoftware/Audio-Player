@@ -1,14 +1,25 @@
-<audio src="https://...tu-audio.mp3"></audio>
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="toggle()">▶</button>
+<input type="range" min="0" max="1" step="0.01" oninput="volume(this.value)">
+
+<audio id="audio"></audio>
 
 <script>
 let audio = document.getElementById("audio");
 
+const params = new URLSearchParams(window.location.search);
+const audioSrc = params.get("audio");
+
+if (audioSrc) {
+  audio.src = audioSrc;
+}
+
 function toggle() {
-  if (audio.paused) {
-    audio.play();
-  } else {
-    audio.pause();
-  }
+  if (audio.paused) audio.play();
+  else audio.pause();
 }
 
 function volume(v) {
