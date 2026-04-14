@@ -1,0 +1,20 @@
+<audio id="audio" src="AUDIO.mp3"></audio>
+
+<script>
+let audio = document.getElementById("audio");
+
+function toggle() {
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  }
+}
+
+function volume(v) {
+  audio.volume = v;
+}
+</script>
+
+</body>
+</html>
